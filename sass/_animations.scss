@@ -1,0 +1,40 @@
+// Animate glich one(red)
+@keyframes glitch-one {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(6) + rem, 22rem, random(6) + rem, 0rem);
+    }
+  }
+}
+
+// Animate glich two(blue)
+@keyframes glitch-two {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(6) + rem, 22rem, random(6) + rem, 0rem);
+    }
+  }
+}
+// END GLITCH
+
+@keyframes hamburger-hover-after {
+  0% {
+    top: 0.6rem;
+  }
+
+  100% {
+    top: 0.5rem;
+  }
+}
+
+@keyframes hamburger-hover-before {
+  0% {
+    top: -0.6rem;
+  }
+
+  100% {
+    top: -0.5rem;
+  }
+}

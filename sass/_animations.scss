@@ -3,7 +3,12 @@
   $steps: 20;
   @for $i from 0 through $steps {
     #{percentage($i*(1/$steps))} {
-      clip: rect(random(6) + rem, 22rem, random(6) + rem, 0rem);
+      clip: rect(
+        (random(6) - random()) + rem,
+        22rem,
+        (random(6) - random()) + rem,
+        0rem
+      );
     }
   }
 }
@@ -13,12 +18,17 @@
   $steps: 20;
   @for $i from 0 through $steps {
     #{percentage($i*(1/$steps))} {
-      clip: rect(random(6) + rem, 22rem, random(6) + rem, 0rem);
+      clip: rect(
+        (random(6) - random()) + rem,
+        22rem,
+        (random(6) - random()) + rem,
+        0rem
+      );
     }
   }
 }
-// END GLITCH
 
+// Hamburger (bottom)
 @keyframes hamburger-hover-after {
   0% {
     top: 0.6rem;
@@ -29,6 +39,7 @@
   }
 }
 
+// Hamburger (top)
 @keyframes hamburger-hover-before {
   0% {
     top: -0.6rem;

@@ -27,87 +27,109 @@ body {
   position: relative;
 }
 
+// HAMBURGER BUTTON
+.nav-toggle {
+  z-index: 20;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 3rem;
+  height: 3rem;
+  background-color: transparent;
+  border: 0.1rem solid $clr-primary;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover .hamburger:before {
+    top: -0.6rem;
+    animation-name: hamburger-hover-before;
+    animation-duration: 300ms;
+    animation-delay: 200ms;
+    animation-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  &:hover .hamburger:after {
+    top: 0.6rem;
+    animation-name: hamburger-hover-after;
+    animation-duration: 300ms;
+    animation-delay: 200ms;
+    animation-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+}
+
+.hamburger {
+  display: block;
+  position: relative;
+
+  &,
+  &:before,
+  &::after {
+    width: 1.7rem;
+    height: 0.12rem;
+    background-color: $clr-primary;
+    border-radius: 2rem;
+  }
+
+  &:before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    transition: all 200ms cubic-bezier(0.5, 0, 0.5, 1);
+  }
+
+  &:before {
+    top: -0.4rem;
+  }
+
+  &:after {
+    top: 0.4rem;
+  }
+}
+// END HAMBURGER BUTTON
+
 // NAVIGATION
 .nav {
   position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translateX(100%);
   z-index: 10;
-  right: 1rem;
-  top: 1rem;
-
-  &__toggle {
-    width: 3rem;
-    height: 3rem;
-    background-color: $clr-black;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    outline: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &:hover .nav__hamburger:before {
-      top: -0.6rem;
-      animation-name: hamburger-hover-before;
-      animation-duration: 300ms;
-      animation-delay: 200ms;
-      animation-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
-      animation-iteration-count: infinite;
-      animation-direction: alternate;
-    }
-
-    &:hover .nav__hamburger:after {
-      top: 0.6rem;
-      animation-name: hamburger-hover-after;
-      animation-duration: 300ms;
-      animation-delay: 200ms;
-      animation-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
-      animation-iteration-count: infinite;
-      animation-direction: alternate;
-    }
-  }
-
-  &__hamburger {
-    display: block;
-    position: relative;
-
-    &,
-    &:before,
-    &::after {
-      width: 1.7rem;
-      height: 0.12rem;
-      background-color: $clr-primary;
-      border-radius: 2rem;
-    }
-
-    &:before,
-    &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      transition: all 200ms cubic-bezier(0.5, 0, 0.5, 1);
-    }
-
-    &:before {
-      top: -0.4rem;
-    }
-
-    &:after {
-      top: 0.4rem;
-    }
-  }
+  background-color: $clr-black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &__list {
     list-style: none;
-    outline: red 1px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // transition: all 200ms cubic-bezier(0.5, 0, 0.5, 1);
+  }
+
+  &__item:not(:last-child) {
+    margin-bottom: 1rem;
   }
 
   &__item {
   }
 
   &__link {
-    color: $clr-white;
+    color: $clr-primary;
     text-decoration: none;
+    font-size: $fs-h6;
   }
 }
 // END NAVIGATION

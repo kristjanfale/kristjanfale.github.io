@@ -44,39 +44,27 @@ body {
   justify-content: center;
   align-items: center;
 
-  &:hover .hamburger:before {
-    top: -0.6rem;
-    animation-name: hamburger-hover-before;
-    animation-duration: 300ms;
-    animation-delay: 200ms;
-    animation-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-  }
+  // &:hover .hamburger:before {
+  //   top: -0.6rem;
+  // }
 
-  &:hover .hamburger:after {
-    top: 0.6rem;
-    animation-name: hamburger-hover-after;
-    animation-duration: 300ms;
-    animation-delay: 200ms;
-    animation-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-  }
+  // &:hover .hamburger:after {
+  //   bottom: -0.6rem;
+  // }
 }
 
 .hamburger {
   position: relative;
+  display: block;
 
   &,
   &:before,
   &::after {
-    display: block;
-
     width: 1.7rem;
     height: 0.12rem;
     background-color: $clr-white;
     border-radius: 2rem;
+    transition: all 350ms cubic-bezier(0.5, 0, 0.5, 1);
   }
 
   &:before,
@@ -84,7 +72,6 @@ body {
     content: '';
     position: absolute;
     left: 0;
-    transition: all 200ms cubic-bezier(0.5, 0, 0.5, 1);
   }
 
   &:before {
@@ -92,7 +79,7 @@ body {
   }
 
   &:after {
-    top: 0.4rem;
+    bottom: -0.4rem;
   }
 }
 // END HAMBURGER BUTTON
@@ -106,13 +93,13 @@ body {
   left: -1rem;
   right: -1rem;
   transform: scale(0, 0);
-  transform-origin: calc(100% - 2.5rem) 2.5em;
+  transform-origin: calc(100% - 3.5rem) 3.5em;
   z-index: 10;
   background: linear-gradient(to left, $clr-black, $clr-primary);
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 300ms cubic-bezier(0.5, 0, 0.5, 1);
+  transition: all 350ms cubic-bezier(0.5, 0, 0.5, 1);
 
   &__list {
     list-style: none;
@@ -144,6 +131,35 @@ body {
 .nav-open {
   & .nav {
     transform: scale(1, 1);
+  }
+
+  & .hamburger {
+    width: 0rem;
+
+    &:before,
+    &::after {
+      left: -0.85rem; // Half the width of hamburger(1.7rem)
+    }
+
+    &:before {
+      // transform: rotate(60deg) translate(0.3rem, 0.27rem);
+      transform: translateY(0.4rem) rotate(135deg);
+    }
+
+    &:after {
+      transform: translateY(-0.4rem) rotate(-135deg);
+    }
+  }
+
+  .nav-toggle:hover .hamburger {
+    &:before {
+      top: -0.4rem;
+      // transform: translate();
+    }
+
+    &:after {
+      bottom: -0.4rem;
+    }
   }
 }
 // END WHEN <body> HAS NAV-OPEN

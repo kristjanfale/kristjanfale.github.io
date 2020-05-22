@@ -123,6 +123,7 @@ body {
     font-size: $fs-h6;
     font-weight: $fw-medium;
     text-shadow: 0.2rem 0 0.2rem $clr-black;
+    outline: none;
   }
 }
 // END NAVIGATION
@@ -142,7 +143,6 @@ body {
     }
 
     &:before {
-      // transform: rotate(60deg) translate(0.3rem, 0.27rem);
       transform: translateY(0.4rem) rotate(135deg);
     }
 
@@ -154,7 +154,6 @@ body {
   .nav-toggle:hover .hamburger {
     &:before {
       top: -0.4rem;
-      // transform: translate();
     }
 
     &:after {
@@ -164,69 +163,63 @@ body {
 }
 // END WHEN <body> HAS NAV-OPEN
 
+// SECTIONS
 .section {
   min-height: 100vh;
+  color: $clr-white;
   width: 100%;
-  padding: 3rem;
-  // position: sticky;
-  // top: 0;
-  // scroll-snap-align: center;
+  padding: 2rem;
+}
 
-  &--home {
-    background: radial-gradient($clr-primary, $clr-black),
-      url(../img/computer_bg.jpg);
-    background-blend-mode: multiply;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    color: $clr-white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
+// HOME
+.home {
+  background: radial-gradient($clr-primary, $clr-black),
+    url(../img/computer_bg.jpg);
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 
-  &--about {
-    background-color: $clr-primary;
-  }
-
-  &--portfolio {
-    background-color: #000;
-  }
-
-  &--contact {
-    background-color: $clr-primary;
+  &__title {
+    margin-bottom: 0.7rem;
   }
 }
+// END HOME
 
-// GLITCH
-.glitch {
-  mix-blend-mode: lighten;
-  position: relative;
-  display: inline-block;
+// CONTACT
+.contact {
+  background: darken($clr-primary, $amount: 10%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
-.glitch:before {
-  left: 0.15rem;
-  text-shadow: -0.1rem 0 $clr-red;
-  animation: glitch-one 2000ms infinite ease-in-out alternate-reverse;
+.contact-info {
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
-.glitch:after {
-  left: -0.15rem;
-  text-shadow: -0.1rem 0 $clr-blue;
-  animation: glitch-two 2000ms infinite ease-in-out alternate-reverse;
-}
+.info {
+  &__personal {
+  }
 
-.glitch:before,
-.glitch:after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: #000;
-  overflow: hidden;
-  clip: rect(0rem, 0rem, 0rem, 0rem);
+  &__social {
+    word-wrap: break-word;
+  }
+
+  &__link {
+    text-decoration: none;
+  }
 }
+// END CONTACT

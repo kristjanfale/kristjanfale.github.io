@@ -193,7 +193,7 @@ body {
 
 // CONTACT
 .contact {
-  background: darken($clr-primary, $amount: 10%);
+  background: lighten($clr-black, $amount: 10%);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -201,9 +201,14 @@ body {
   justify-content: flex-start;
 
   &__title {
+    text-transform: uppercase;
+    // text-shadow: 0.2rem 0 0.2rem $clr-black;
   }
 
   &__body {
+    margin: auto 0;
+
+    //GRID
   }
 }
 // END CONTACT

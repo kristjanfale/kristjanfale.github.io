@@ -7,13 +7,13 @@
 
 .glitch:before {
   left: 0.15rem;
-  text-shadow: -0.1rem 0 $clr-blue;
+  // text-shadow: -0.1rem 0 $clr-blue;
   animation: glitch-one 2000ms infinite ease-in-out alternate-reverse;
 }
 
 .glitch:after {
   left: -0.15rem;
-  text-shadow: -0.1rem 0 $clr-red;
+  // text-shadow: -0.1rem 0 $clr-red;
   animation: glitch-two 2000ms infinite ease-in-out alternate-reverse;
 }
 

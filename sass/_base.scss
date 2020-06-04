@@ -17,148 +17,13 @@ html {
 body {
   font-family: 'Rubik', sans-serif;
   font-weight: $fw-regular;
+  position: relative;
 }
 
 .container {
   width: 100%;
   height: 100vh;
-  // overflow: scroll;
-  // scroll-snap-type: y mandatory;
-  position: relative;
 }
-
-// HAMBURGER BUTTON
-.nav-toggle {
-  z-index: 20;
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  width: 3rem;
-  height: 3rem;
-  background-color: transparent;
-  border: 0.2rem solid $clr-primary;
-  border-radius: 50%;
-  cursor: pointer;
-  outline: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  // &:hover .hamburger:before {
-  //   top: -0.6rem;
-  // }
-
-  // &:hover .hamburger:after {
-  //   bottom: -0.6rem;
-  // }
-}
-
-.hamburger {
-  position: relative;
-  display: block;
-
-  &,
-  &:before,
-  &::after {
-    width: 1.7rem;
-    height: 0.12rem;
-    background-color: $clr-primary;
-    border-radius: 2rem;
-    transition: all 350ms cubic-bezier(0.5, 0, 0.5, 1);
-  }
-
-  &:before,
-  &::after {
-    content: '';
-    position: absolute;
-    left: 0;
-  }
-
-  &:before {
-    top: -0.4rem;
-  }
-
-  &:after {
-    bottom: -0.4rem;
-  }
-}
-// END HAMBURGER BUTTON
-
-// NAVIGATION
-.nav {
-  border-radius: 2rem;
-  position: fixed;
-  top: -1rem;
-  bottom: -1rem;
-  left: -1rem;
-  right: -1rem;
-  transform: scale(0, 0);
-  transform-origin: calc(100% - 3.5rem) 3.5em;
-  z-index: 10;
-  background: linear-gradient(to left, $clr-black, $clr-primary);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 350ms cubic-bezier(0.5, 0, 0.5, 1);
-
-  &__list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  &__item:not(:last-child) {
-    margin-bottom: 1rem;
-  }
-
-  &__link {
-    display: inline-block;
-    color: $clr-white;
-    text-decoration: none;
-    font-size: $fs-h6;
-    font-weight: $fw-medium;
-    text-shadow: 0.2rem 0 0.2rem $clr-black;
-    outline: none;
-  }
-}
-// END NAVIGATION
-
-// WHEN <body> HAS NAV-OPEN
-.nav-open {
-  & .nav {
-    transform: scale(1, 1);
-  }
-
-  & .hamburger {
-    width: 0rem;
-
-    &:before,
-    &::after {
-      left: -0.85rem; // Half the width of hamburger(1.7rem)
-    }
-
-    &:before {
-      transform: translateY(0.4rem) rotate(135deg);
-    }
-
-    &:after {
-      transform: translateY(-0.4rem) rotate(-135deg);
-    }
-  }
-
-  .nav-toggle:hover .hamburger {
-    &:before {
-      top: -0.4rem;
-    }
-
-    &:after {
-      bottom: -0.4rem;
-    }
-  }
-}
-// END WHEN <body> HAS NAV-OPEN
 
 // SECTIONS
 .section {
@@ -190,13 +55,12 @@ body {
 
 // PORTFOLIO
 .portfolio {
-  // background: darken($clr-white, 10%);
   background: $clr-white;
   color: $clr-black;
 
   &__title {
-    text-transform: uppercase;
-    margin-bottom: 2rem;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
     text-align: center;
   }
 
@@ -207,7 +71,7 @@ body {
     grid-template-columns: repeat(
       auto-fit,
       minmax(#{'min(100%, 15rem)'}, 1fr)
-    ); //! Incompatible units: 'vw' and 'px' --> #{"max(1vw, 20px)"}
+    ); // Incompatible units: 'vw' and 'px' --> #{"max(1vw, 20px)"}
     justify-items: center;
     align-items: center;
   }
@@ -224,8 +88,7 @@ body {
   justify-content: flex-start;
 
   &__title {
-    text-transform: uppercase;
-    // text-shadow: 0.2rem 0 0.2rem $clr-black;
+    text-transform: capitalize;
   }
 
   &__body {

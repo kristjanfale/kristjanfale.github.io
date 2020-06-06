@@ -53,16 +53,14 @@
 
 // NAVIGATION
 .nav {
-  border-radius: 2rem;
   position: fixed;
-  top: -1rem;
-  bottom: -1rem;
-  left: -1rem;
-  right: -1rem;
-  transform: scale(0, 0);
-  transform-origin: calc(100% - 3.5rem) 3.5rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateY(-100%);
   z-index: 10;
-  background: radial-gradient((darken($clr-primary, 5%)), $clr-black);
+  background: $clr-black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,24 +74,27 @@
     align-items: center;
   }
 
-  &__item:not(:last-child) {
-    margin-bottom: 1.5rem;
+  &__item {
+    transform: translateY(100%);
+    opacity: 0;
+
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
   }
 
   &__link {
     display: inline-block;
-    color: $clr-white;
+    color: $clr-primary;
     text-decoration: none;
     font-size: $fs-h4;
     font-weight: $fw-medium;
     outline: none;
-    transform: scale(1);
     transition: all 350ms cubic-bezier(0.5, 0, 0.5, 1);
     position: relative;
 
     &:hover {
       transform: scale(1.2);
-      // text-shadow: 0 0 0.2rem $clr-black;
     }
 
     &:before {
@@ -102,8 +103,8 @@
       height: 0.2rem;
       position: absolute;
       bottom: 0;
-      left: 0;
-      background-color: $clr-white;
+      right: 0;
+      background-color: $clr-primary;
       box-shadow: 0.2rem 0.2rem 0.4rem $clr-black;
       transition: all 350ms cubic-bezier(0.5, 0, 0.5, 1);
     }
@@ -119,7 +120,20 @@
 // WHEN <body> HAS NAV-OPEN
 .nav-open {
   & .nav {
-    transform: scale(1, 1);
+    animation: menu-animation 800ms cubic-bezier(0.5, 0, 0.5, 1) forwards;
+
+    &__item {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 250ms cubic-bezier(0.5, 0, 0.5, 1);
+
+      // Loop through children(<li>)
+      @for $i from 1 through 4 {
+        &:nth-child(#{$i}) {
+          transition-delay: $i * 100ms + 800ms;
+        }
+      }
+    }
   }
 
   & .hamburger {
@@ -136,16 +150,6 @@
 
     &:after {
       transform: translateY(-0.4rem) rotate(-135deg);
-    }
-  }
-
-  .nav-toggle:hover .hamburger {
-    &:before {
-      top: -0.4rem;
-    }
-
-    &:after {
-      bottom: -0.4rem;
     }
   }
 }

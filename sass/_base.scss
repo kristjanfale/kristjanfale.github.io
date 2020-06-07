@@ -70,7 +70,7 @@ body {
     grid-row-gap: 2rem;
     grid-template-columns: repeat(
       auto-fit,
-      minmax(#{'min(100%, 15rem)'}, 1fr)
+      minmax(#{'min(100%, 16rem)'}, 1fr)
     ); // Incompatible units: 'vw' and 'px' --> #{"max(1vw, 20px)"}
     justify-items: center;
     align-items: center;

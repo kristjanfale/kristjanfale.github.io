@@ -22,7 +22,6 @@ body {
 
 .container {
   width: 100%;
-  height: 100vh;
 }
 
 // SECTIONS
@@ -48,7 +47,11 @@ body {
   text-align: center;
 
   &__title {
-    margin-bottom: 0.7rem;
+    font-weight: $fw-medium;
+  }
+
+  &__subtitle {
+    font-weight: $fw-light;
   }
 }
 // END HOME
@@ -62,6 +65,7 @@ body {
     text-transform: capitalize;
     margin-bottom: 2rem;
     text-align: center;
+    font-weight: $fw-medium;
   }
 
   &__body {
@@ -89,6 +93,7 @@ body {
 
   &__title {
     text-transform: capitalize;
+    font-weight: $fw-medium;
   }
 
   &__body {

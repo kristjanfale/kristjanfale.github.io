@@ -2,7 +2,7 @@ const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelectorAll('.nav__link');
 const nav = document.querySelector('.nav');
 
-const cardText = document.querySelectorAll('.card__text');
+const cardButtons = document.querySelectorAll('.card__buttons');
 
 // NAVIGATION
 // Toggle navigation
@@ -24,27 +24,27 @@ nav.addEventListener('click', () => {
 // END NAVIGATION
 
 // CARD BUTTONS
-cardText.forEach((card) => {
+cardButtons.forEach((buttons) => {
   // Hover over first(button--live)
-  card.children[0].addEventListener('mouseover', () => {
-    card.children[0].style.transform = 'scale(1.1)';
-    card.children[1].style.transform = 'scale(0.9)';
+  buttons.children[0].addEventListener('mouseover', () => {
+    buttons.children[0].style.transform = 'scale(1.1)';
+    buttons.children[1].style.transform = 'scale(0.9)';
   });
 
-  card.children[0].addEventListener('mouseout', () => {
-    card.children[0].style.transform = 'scale(1)';
-    card.children[1].style.transform = 'scale(1)';
+  buttons.children[0].addEventListener('mouseout', () => {
+    buttons.children[0].style.transform = 'scale(1)';
+    buttons.children[1].style.transform = 'scale(1)';
   });
 
   // Hover over second(button--code)
-  card.children[1].addEventListener('mouseover', () => {
-    card.children[0].style.transform = 'scale(0.9)';
-    card.children[1].style.transform = 'scale(1.1)';
+  buttons.children[1].addEventListener('mouseover', () => {
+    buttons.children[0].style.transform = 'scale(0.9)';
+    buttons.children[1].style.transform = 'scale(1.1)';
   });
 
-  card.children[1].addEventListener('mouseout', () => {
-    card.children[0].style.transform = 'scale(1)';
-    card.children[1].style.transform = 'scale(1)';
+  buttons.children[1].addEventListener('mouseout', () => {
+    buttons.children[0].style.transform = 'scale(1)';
+    buttons.children[1].style.transform = 'scale(1)';
   });
 });
 // END CARD BUTTONS
